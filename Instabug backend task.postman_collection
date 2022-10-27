@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "3d96c654-d6b7-4beb-b0ea-847ecd419684",
+		"name": "Instabug backend challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Application",
+			"item": [
+				{
+					"name": "get applications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/applications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create application",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"application\": {\n        \"name\": \"Application 1\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/applications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get an application",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/applications/03cd0e7c-fbd9-471c-a81c-bf583352c93e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"applications",
+								"03cd0e7c-fbd9-471c-a81c-bf583352c93e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "create a chat in an application",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3001/applications/9415d785-efd1-4fb0-8d70-744c8494c607/chats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"applications",
+								"9415d785-efd1-4fb0-8d70-744c8494c607",
+								"chats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all chats in an application",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/applications/9415d785-efd1-4fb0-8d70-744c8494c607/chats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"applications",
+								"9415d785-efd1-4fb0-8d70-744c8494c607",
+								"chats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "create a message in a specific chat in an application",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\" : {\r\n        \"message\": \"first message\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/applications/9415d785-efd1-4fb0-8d70-744c8494c60/chats/2/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"applications",
+								"9415d785-efd1-4fb0-8d70-744c8494c60",
+								"chats",
+								"2",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search for message",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"first\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/messages/9415d785-efd1-4fb0-8d70-744c8494c607/1/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"messages",
+								"9415d785-efd1-4fb0-8d70-744c8494c607",
+								"1",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get messages of specific chat",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

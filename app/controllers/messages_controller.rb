@@ -10,7 +10,7 @@ class MessagesController < ActionController::API
       @message = @message_service.create(params[:application_uuid],params[:chat_number], message_params[:message])
       render json: {message_number: @message}, status: :ok
     else
-      render json: { message: "Validation failed", errors: 'Chat Not Found' }, status: 404
+      render json: { message: "Validation failed", errors: 'Chat Not Found' }, status: 400
     end
   end
 

@@ -10,7 +10,7 @@ class ApplicationsController < ActionController::API
     end
 
     def show
-        @application = @application_service.show(params[:id])
+        @application = @application_service.show(params[:uuid])
         render json: @application, status: :ok
     end
 
