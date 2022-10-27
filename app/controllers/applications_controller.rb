@@ -23,6 +23,15 @@ class ApplicationsController < ActionController::API
         end
     end
 
+    def update
+        @application =  @application_service.update(params[:uuid], application_params)
+        if @application.save
+            render json: @application, status: :ok
+        else
+            render json: { message: "Validation failed", errors: @application.errors }, status: 400
+        end
+    end
+
     private
 
     def application_params

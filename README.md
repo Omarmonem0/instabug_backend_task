@@ -33,7 +33,7 @@ docker-compose up
 
 #### Update
 ```bash
-     - End point for updating specific application in the system.
+    - End point for updating specific application in the system.
     - PATCH: /applications/{UUID}
     - params {"application" : {name: "test name"}}.
 ```
