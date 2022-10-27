@@ -41,7 +41,7 @@ services:
       RAILS_ENV: "development"
       REDIS_URL: "redis://redis:6379/2"
       DB_USER: root
-      DB_NAME: web
+      DB_NAME: instabug_backend_task
       DB_PASSWORD: password
       DB_HOST: db
       ELASTICSEARCH_URL: "http://elasticsearch:9200"
