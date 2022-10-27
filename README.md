@@ -13,6 +13,7 @@ docker-compose up
 ```bash
     - End point for listing all applications in the system.
     - GET: /applications 
+    - NOTE chats_count property is not live it will be updated every 1 hour
 ```
 
 #### Create
@@ -27,6 +28,7 @@ docker-compose up
 ```bash
     - End point for show specific application in the system.
     - GET: /applications/{UUID}
+    - NOTE messages_count property is not live it will be updated every 1 hour
 ```
 
 #### Update
