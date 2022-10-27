@@ -2,11 +2,16 @@ class MessagesController < ActionController::API
 
   def initialize
     @message_service = MessageService.new
+    @chat_service = ChatService.new
   end
 
   def create
-    @message = @message_service.create(params[:application_uuid],params[:chat_number], message_params[:message])
-    render json: {message_number: @message}, status: :ok
+    if @chat_service.is_chat_exists(params[:application_uuid], params[:chat_number])
+      @message = @message_service.create(params[:application_uuid],params[:chat_number], message_params[:message])
+      render json: {message_number: @message}, status: :ok
+    else
+      render json: { message: "Validation failed", errors: 'Chat Not Found' }, status: 404
+    end
   end
 
   def search
@@ -22,4 +27,5 @@ class MessagesController < ActionController::API
   def message_params
     params.require(:message).permit(:message)
   end
+
 end
