@@ -1,9 +1,9 @@
 update_chats_count_worker:
-  cron: "*/5 * * * *"
+  cron: "0 * * * *"
   class: UpdateChatsCountJob
   queue: default
 
 update_messages_count_worker:
-  cron: "*/5 * * * *"
+  cron: "0 * * * *"
   class: UpdateMessagesCountJob
   queue: default

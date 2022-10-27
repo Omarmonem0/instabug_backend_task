@@ -19,7 +19,7 @@ docker-compose up
 ```bash
     - End point for creating application in the system.
     - params {"application" : {name: "test name"}}
-    - Adding redis key APP-{UUID} and the value is number of chats in this application.
+    - Adds redis key APP-{UUID} and the value is number of chats in this application.
     - POST: /applications 
 ```
 
@@ -40,10 +40,10 @@ docker-compose up
 #### Create
 ```bash
      - End point for creating chat associated to specific application.
-     - This end point add a background job to create the chat.
-     - Adding redis key APP-{UUID}-{CHAT_NUMBER} and the value is number of messages in this chat.
-     - Assign the chat number from redis key added at creating application.
-     - Update the application chat number in redis
+     - This end point adds a background job to create the chat.
+     - Adds redis key APP-{UUID}-{CHAT_NUMBER} and the value is number of messages in this chat.
+     - Assigns the chat number from redis key added at creating application.
+     - Updates the application chat number in redis
      - POST: /applications/{UUID}/chats
 ```
 
@@ -57,10 +57,10 @@ docker-compose up
 #### Create
 ```bash
      - End point for creating message associated to specific chat.
-     - This end point add a background job to create the message.
-     - Assign the message number from redis key added at creating chat.
-     - Update the chat message number in redis
-     - Add the record to elasticsearch index.
+     - This end point adds a background job to create the message.
+     - Assigns the message number from redis key added at creating chat.
+     - Updates the chat message number in redis
+     - Adds the record to elasticsearch index.
      - POST: /applications/{UUID}/chats/{CHAT_NUMBER}/message
      - params {"message" : {message: "test name"}}.
 ```
@@ -68,8 +68,14 @@ docker-compose up
 #### Search
 ```bash
      - Search by message body in specific chat and application in elasticsearch.
-     - GET: /applications/{UUID}/chats/{CHAT_NUMBER}/message
-     - params {"message" : {message: "test name"}}.
+     - GET: messages/{UUID}/{CHAT_NUMBER}/search
+     - params {"message" : "body" }
+```
+
+### Show
+```bash
+     - get messages of specific chat.
+     - GET: messages/{UUID}/{CHAT_NUMBER}
 ```
 
 ## Background Jobs
