@@ -1,3 +1,3 @@
 class MessageSerializer < ActiveModel::Serializer
-    attributes :number, :message
+    attributes :_source
 end

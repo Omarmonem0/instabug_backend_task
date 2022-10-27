@@ -5,6 +5,10 @@ class MessageService
     @chat = Message.get_message_number(application_id, chat_number, false )
   end
 
+  def show(application_id, chat_number)
+    @messages = Message.where(application_id: application_id, chat_number: chat_number)
+  end
+
   def search(params)
     @messages = (Message.search "query": {
       "bool": {

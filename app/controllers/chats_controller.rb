@@ -14,7 +14,7 @@ class ChatsController < ActionController::API
   def create
     if @application_service.is_application_exists(params[:application_uuid])
       @chat = @chat_service.create(params[:application_uuid])
-      render json: @chat, status: :ok
+      render json: {chat_number: @chat}, status: :ok
     else
       render json: { message: "Validation failed", errors: 'Application Not Found' }, status: 404
     end
