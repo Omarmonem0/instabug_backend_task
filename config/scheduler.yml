@@ -1,0 +1,9 @@
+update_chats_count_worker:
+  cron: "0 * * * *"
+  class: UpdateChatsCountWorker
+  queue: default
+
+update_messages_count_worker:
+  cron: "0 * * * *"
+  class: UpdateMessagesCountWorker
+  queue: default
